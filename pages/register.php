@@ -1,23 +1,35 @@
 <?php
-$path = "$_SERVER[QUERY_STRING]";
-$cutAfter = strpos($path, '&');
-$succesOrFail = substr($path, $cutAfter + 1);
+session_start();
+$message = $_SESSION['message'] ?? null;
+unset($_SESSION['message']);
 ?>
 
-<form action="./actions/auth/registerUser.php" method="post">
-  <label for="username">Username:</label> 
-  <input id="username" name="username" required="" type="text" />
-  <label for="email">Email:</label>
-  <input id="email" name="email" required="" type="email" />
-  <label for="password">Password:</label>
-  <input id="password" name="password" required="" type="password" />
-  <input name="register" type="submit" value="Register" />
-</form>
-
-<?php if ($succesOrFail === 'success=true') : ?>
-  <p>Registration successful! You can now <a href="./pages/login.php">login</a>.</p>
-<?php elseif ($succesOrFail === 'success=false&error=duplicate') : ?>
-  <p>Error: The username or email is already taken. Please try again with different credentials.</p>
-<?php elseif ($succesOrFail === 'success=false&error=sql') : ?>
-  <p>Error: There was a problem with the registration process. Please try again later.</
-<?php endif; ?>
+<div class="h-100-w-100 flex-center">
+  <div class="flex-col border-radius margin-all bg-secondary border form-w">
+    <div class="h1 padding-all center-text">Register</div>
+    
+    <form class="flex-col margin-unset padding-all" action="./actions/auth/registerUser.php" method="post">
+      <div class="flex-col padding-btm">
+        <label for="username">Username:</label>
+        <input class="input border border-radius" name="username" required type="text" autofocus>
+      </div>
+      <div class="flex-col <?= $message === null ? 'padding-btm' : '' ?>">
+        <label for="email">Email:</label>
+        <input class="input border border-radius" name="email" required type="email">
+      </div>
+      <?php if ($message): ?>
+        <div class="<?= htmlspecialchars($message['classes']) ?> wrap padding-btm">
+          <?= $message['text'] ?>
+        </div>
+      <?php endif; ?>
+      <div class="flex-col padding-btm">
+        <label for="password">Password:</label>
+        <input class="input border border-radius" name="password" required type="password">
+      </div>
+      <div class="gap flex-row flex-align">
+        <button class="btn full-width" name="register" type="submit" value="Register">Register</button>
+        <a class="flex-align full-width justify-end end-text" href="./forgot-password">Forgot password?</a>
+      </div>
+    </form>
+  </div>
+</div>

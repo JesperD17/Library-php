@@ -1,1 +1,1 @@
-<div>Footer</div>
+<div class="flex-col padding-all">Footer</div>
