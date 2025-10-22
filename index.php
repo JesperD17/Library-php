@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require 'includes/template.php';
 
 $page = $_GET['page'] ?? 'home';
