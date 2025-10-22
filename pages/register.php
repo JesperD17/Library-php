@@ -27,7 +27,7 @@ unset($_SESSION['message']);
         <input class="input border border-radius" name="password" required type="password">
       </div>
       <div class="gap flex-row flex-align">
-        <button class="btn full-width" name="register" type="submit" value="Register">Register</button>
+        <button class="btn full-width baseText" name="register" type="submit" value="Register">Submit</button>
         <a class="flex-align full-width justify-end end-text" href="./forgot-password">Forgot password?</a>
       </div>
     </form>

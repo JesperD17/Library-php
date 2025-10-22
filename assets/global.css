@@ -15,6 +15,7 @@ html, body {
     font-family: "poppins", sans-serif;
     margin: unset;
     height: 100vh;
+    font-size: 15px;
 }
 
 /* auto page margin */
@@ -51,6 +52,10 @@ html, body {
 /* padding, margin, radius etc */
 .padding-all {
     padding: var(--margin-padding);
+}
+
+.padding-top {
+    padding-top: var(--margin-padding);
 }
 
 .pading-noTop {
