@@ -5,7 +5,7 @@ unset($_SESSION['message']);
 
 <div class="h-100-w-100 flex-center">
   <div class="flex-col border-radius margin-all bg-secondary border form-w">
-    <div class="h1 padding-all center-text">Register</div>
+    <div class="h1 padding-all center-text bold">Register</div>
     
     <form class="flex-col margin-unset padding-all" action="./actions/auth/registerUser.php" method="post">
       <div class="flex-col padding-btm">

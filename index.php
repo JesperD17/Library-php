@@ -15,8 +15,7 @@ $authPaths = ["search"];
 if (file_exists($path) && in_array($page, $authPaths)) {
     include 'actions/includes/authCheck.php';
     if (!requireAuth()) {
-        http_response_code(403);
-        include 'pages/403.php';
+        renderErrorPage('403');
         exit;
     }
     renderPage($page);
@@ -25,7 +24,6 @@ if (file_exists($path) && in_array($page, $authPaths)) {
 } else if (file_exists($actionPath)) {
     renderAction($actionPath);
 } else {
-    http_response_code(404);
-    include 'pages/404.php';
+    renderErrorPage('404');
 }
 ?>
