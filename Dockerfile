@@ -15,6 +15,4 @@ COPY . /var/www/html
 
 RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
 
-EXPOSE 80
-
 CMD ["/bin/sh", "-lc", "php console/migrate.php && exec apache2-foreground"]
