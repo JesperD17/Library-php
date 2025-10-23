@@ -2,4 +2,4 @@
 echo "Visitor";
 ?>
 
-<p>This is the homepage.</p>
+<p>This is the homepage. Test text</p>
