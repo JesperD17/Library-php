@@ -2,8 +2,16 @@
 
 function renderPage($view, $data = []) {
     extract($data);
-    include 'includes/styles.php';
     ?>
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Library PHP</title>
+        <?php include 'includes/styles.php'; ?>
+    </head>
+    <body>
     <div class="h-100-w-100 flex-col bg-background">
     <?php
     include 'includes/header.php';
@@ -17,20 +25,32 @@ function renderPage($view, $data = []) {
     include 'includes/footer.php';
     ?>
     </div>
+    </body>
+    </html>
     <?php
 }
 
 function renderAction($view, $data = []) {
     extract($data);
-    include 'includes/styles.php';
-    ?> 
+    ?>
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Action - Library PHP</title>
+        <?php include 'includes/styles.php'; ?>
+    </head>
+    <body>
         <div class="h-100-w-100 flex-col bg-background">
-            <div class="page-width"> 
+            <div class="page-width">
                 <?php
                 include "actions/$view.php";
                 ?>
             </div>
         </div>
+    </body>
+    </html>
     <?php
 }
 

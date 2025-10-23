@@ -1,0 +1,11 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-weight: 600;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+}
+
+.logo i {
+  font-size: 1.2em;
+}

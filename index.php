@@ -10,7 +10,17 @@ if ($page === '') $page = 'home';
 $path = "pages/$page.php";
 $actionPath = "actions/$page.php";
 
-if (file_exists($path)) {
+$authPaths = ["search"];
+
+if (file_exists($path) && in_array($page, $authPaths)) {
+    include 'actions/includes/authCheck.php';
+    if (!requireAuth()) {
+        http_response_code(403);
+        include 'pages/403.php';
+        exit;
+    }
+    renderPage($page);
+} else if (file_exists($path)) {
     renderPage($page);
 } else if (file_exists($actionPath)) {
     renderAction($actionPath);

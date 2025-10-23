@@ -4,6 +4,7 @@
     --border-radius: 8px;
 
     --color-primary: #90baf0;
+    --color-background-alt: #cee3ff;
     --color-secondary: #ffffff;
     --color-tertary: #4a90e2;
     --color-background: #f5f7fa;
@@ -173,11 +174,16 @@ html, body {
 /* colors */
 .bg-primary {
     background-color: var(--color-primary);
-    color: white;
+    color: var(--color-text-secondary);
 }
 
 .bg-background {
     background-color: var(--color-background);
+    color: var(--color-text-primary);
+}
+
+.bg-background-alt {
+    background-color: var(--color-background-alt);
     color: var(--color-text-primary);
 }
 
@@ -188,6 +194,11 @@ html, body {
 
 .border {
     border: 2px solid var(--color-primary);
+    outline: none;
+}
+
+.border-btm {
+    border-bottom: 2px solid var(--color-primary);
     outline: none;
 }
 
