@@ -1,12 +1,10 @@
 <?php
-include '../includes/dbConnection.php';
+include_once '../includes/dbConnection.php';
 
-if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 try {
-    $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+    $stmt = $db->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
     $hashed = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    $stmt->bind_param("sss", $_POST['username'], $_POST['email'], $hashed);
-    $stmt->execute();
+    $stmt->execute([$_POST['username'], $_POST['email'], $hashed]);
 
     $_SESSION['message'] = [
         'classes' => 'successMessage',
@@ -15,8 +13,8 @@ try {
     header("Location: ../../register");
     exit();
 
-} catch (mysqli_sql_exception $e) {
-    if ($e->getCode() === 1062) {
+} catch (PDOException $e) {
+    if ($e->getCode() === 23000) {
         $_SESSION['message'] = [
             'classes' => 'errorMessage',
             'text' => 'Username or email already taken. Please try again.'

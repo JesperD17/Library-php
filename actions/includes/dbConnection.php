@@ -1,12 +1,13 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "library";
+try {
+  $db = new PDO("sqlite:".__DIR__."/../../database.sqlite");
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+  $stmt = $db->query('SELECT 1');
+  if ($stmt === false) {
+      throw new Exception('Test query failed');
+  }
+} catch (PDOException $e) {
+  error_log('DB error: ' . $e->getMessage());
+  die('Database connection failed');
 }
-// echo "Connected successfully";
-?>

@@ -1,13 +1,10 @@
 <?php
-include '../includes/dbConnection.php';
+include_once '../includes/dbConnection.php';
 
-if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 try {
-    $users = $conn->prepare("SELECT * FROM users WHERE email = ?");
-    $users->bind_param("s", $_POST['email']);
-    $users->execute();
-    $result = $users->get_result();
-    $data = $result->fetch_all(MYSQLI_ASSOC);
+    $users = $db->prepare("SELECT * FROM users WHERE email = ?");
+    $users->execute([$_POST['email']]);
+    $data = $users->fetchAll(PDO::FETCH_ASSOC);
     $passHashDB = $data[0]['password'];
     $user = $data[0]['id'];
 
@@ -23,9 +20,8 @@ try {
             }
 
             setcookie("SESSION_TOKEN", $randomString, time() + (365 * 24 * 60 * 60) , "/");
-            $stmt = $conn->prepare("UPDATE users SET session_token = ? WHERE id = ?");
-            $stmt->bind_param("si", $randomString, $user);
-            $stmt->execute();
+            $stmt = $db->prepare("UPDATE users SET session_token = ? WHERE id = ?");
+            $stmt->execute([$randomString, $user]);
             
             $_SESSION['message'] = [
                 'classes' => 'successMessage',
@@ -42,7 +38,7 @@ try {
         header("Location: ../../login");
         exit();
     }
-} catch (mysqli_sql_exception $e) {
+} catch (PDOException $e) {
     if ($e->getCode() === 1062) {
         $_SESSION['message'] = [
             'classes' => 'errorMessage',
