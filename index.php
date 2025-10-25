@@ -10,15 +10,16 @@ if ($page === '') $page = 'home';
 $path = "pages/$page.php";
 $actionPath = "actions/$page.php";
 
-$authPaths = ["search"];
+$authPaths = ["profile"];
 
 if (file_exists($path) && in_array($page, $authPaths)) {
     include 'actions/includes/authCheck.php';
     if (!requireAuth()) {
         renderErrorPage('403');
         exit;
+    } else {
+        renderPage($page);
     }
-    renderPage($page);
 } else if (file_exists($path)) {
     renderPage($page);
 } else if (file_exists($actionPath)) {

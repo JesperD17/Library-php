@@ -8,9 +8,11 @@
     }
     echo poppinFonts();
     echo boxiconsFonts();
-    $css = file_get_contents(__DIR__ . '/../assets/global.css') . "\n";
-    $css .= file_get_contents(__DIR__ . '/../assets/forms.css') . "\n";
-    $css .= file_get_contents(__DIR__ . '/../assets/component.css') . "\n";
-    echo $css;
+    $css = file_get_contents(__DIR__ . '/../assets/css/global.css') . "\n";
+    $css .= file_get_contents(__DIR__ . '/../assets/css/forms.css') . "\n";
+    $css .= file_get_contents(__DIR__ . '/../assets/css/component.css') . "\n";
+    if ($css !== false) {
+        echo $css;
+    }
     ?>
 </style>

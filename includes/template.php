@@ -10,6 +10,7 @@ function renderPage($view, $data = []) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Library PHP</title>
         <?php include 'includes/styles.php'; ?>
+        <?php include 'includes/js.php'; ?>
     </head>
     <body>
     <div class="h-100-w-100 flex-col bg-background">

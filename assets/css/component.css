@@ -1,0 +1,54 @@
+/* header */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-weight: 600;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+}
+
+.logo i {
+  font-size: 1.2em;
+}
+
+.openMenuBtn {
+  cursor: pointer;
+  position: relative;
+}
+
+.hide-menu {
+  opacity: 0;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  transform: translateY(-8px) scaleY(0.98);
+  transform-origin: top;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.open .hide-menu {
+  opacity: 1;
+  position: absolute;
+  transform: translateY(0) scaleY(1);
+  pointer-events: auto;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  width: 100px;
+  left: unset;
+  right: 0;
+  background-color: var(--color-background-alt);
+  border-radius: var(--border-radius);
+  padding: var(--margin-padding);
+  z-index: 2;
+  align-items: baseline;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 500;
+}

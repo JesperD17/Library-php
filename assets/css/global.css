@@ -12,6 +12,11 @@
     --color-text-secondary: white;
 }
 
+* {
+    scroll-behavior: smooth;
+    transition: all 0.2s ease-in-out;
+}
+
 html, body {
     font-family: "poppins", sans-serif;
     margin: unset;
@@ -48,6 +53,11 @@ html, body {
 
 .bold {
     font-weight: 600;
+}
+
+/* icons */
+.icon-s {
+    font-size: 20px;
 }
 
 /* padding, margin, radius etc */
@@ -154,8 +164,24 @@ html, body {
     gap: 12px;
 }
 
+.gap-s {
+    gap: 5px;
+}
+
 .full-width {
     width: 100%;
+}
+
+.hideDesktop {
+    display: none;
+}
+
+.hideMobile {
+    display: flex;
+}
+
+.turnDiv {
+    transform: rotate(90deg);
 }
 
 /* fonts */
@@ -213,4 +239,14 @@ input.border:focus-visible {
     background: var(--color-tertary);
     border-radius: var(--border-radius);
     color: var(--color-text-secondary);
+}
+
+@media only screen and (max-width: 500px) {
+    .hideDesktop {
+        display: flex;
+    }
+
+    .hideMobile {
+        display: none;
+    }
 }

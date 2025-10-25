@@ -15,7 +15,7 @@ try {
     exit();
 
 } catch (PDOException $e) {
-    if ($e->getCode() === 23000) {
+    if ($e->getCode() == 23000) {
         $_SESSION['message'] = [
             'classes' => 'errorMessage',
             'text' => 'Username or email already taken. Please try again.'
