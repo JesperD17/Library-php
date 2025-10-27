@@ -19,32 +19,36 @@
 
 html, body {
     font-family: "poppins", sans-serif;
-    margin: unset;
-    height: 100vh;
+    margin: 0;
+    height: 100%;
     font-size: 15px;
+    overflow-x: hidden;
 }
 
-/* auto page margin */
 .h-100-w-100 {
-    height: 100%;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .page-width {
+    flex: 1;
     max-width: 1000px;
     padding: calc(1rem + 1vw);
     margin: 0 auto;
-    height: 100%;
-    width: -webkit-fill-available;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .section {
-    margin: 40px 0px;
+    margin: 40px 0;
 }
+
 
 /* fonts */
 .h1 {
     font-size: 28px;
+    text-transform: capitalize;
 }
 
 .baseText {
@@ -160,6 +164,10 @@ html, body {
     flex-wrap: wrap;
 }
 
+.scroll-y {
+    overflow-y: auto;
+}
+
 .gap {
     gap: 12px;
 }
@@ -248,5 +256,19 @@ input.border:focus-visible {
 
     .hideMobile {
         display: none;
+    }
+}
+
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+    color: transparent;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: #F5F5F5; /* FROM Color 1 */
+    }
+    100% {
+        background-color: #E2E2E2; /* TO Color 2 */
     }
 }

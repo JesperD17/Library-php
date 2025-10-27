@@ -52,3 +52,17 @@
   color: var(--color-text);
   font-weight: 500;
 }
+
+.book {
+  background-color: var(--color-background-alt);
+  border-radius: var(--border-radius);
+  max-width: 200px;
+  height: 100%;
+}
+
+.book img {
+  width: 200px;
+  height: 300px;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
