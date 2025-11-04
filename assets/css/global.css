@@ -15,6 +15,7 @@
 * {
     scroll-behavior: smooth;
     transition: all 0.2s ease-in-out;
+    text-decoration: unset;
 }
 
 html, body {
@@ -178,6 +179,10 @@ html, body {
 
 .full-width {
     width: 100%;
+}
+
+.hide {
+    display: none;
 }
 
 .hideDesktop {

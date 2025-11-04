@@ -23,7 +23,8 @@ try {
     } else {
         $_SESSION['message'] = [
             'classes' => 'errorMessage',
-            'text' => 'Database error. Please try again later.'
+            'text' => 'Database error. Please try again later.',
+            'error' => $e
         ];
     }
     header("Location: ../../register");

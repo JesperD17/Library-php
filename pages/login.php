@@ -15,6 +15,9 @@ unset($_SESSION['message']);
       <?php if ($message): ?>
         <div class="<?= htmlspecialchars($message['classes']) ?> wrap padding-btm">
           <?= $message['text'] ?>
+          <div class="hide">
+            <?= $message['error'] ?>
+          </div>
         </div>
       <?php endif; ?>
       <div class="flex-col padding-btm">
