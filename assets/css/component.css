@@ -53,16 +53,34 @@
   font-weight: 500;
 }
 
+/* book cards */
 .book {
   background-color: var(--color-background-alt);
   border-radius: var(--border-radius);
-  max-width: 200px;
+  width: 200px;
   height: 100%;
 }
 
 .book img {
-  width: 200px;
+  max-width: 200px;
   height: 300px;
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
+}
+
+@media only screen and (max-width: 500px) {
+  .mobileCards {
+    flex: 0 0 calc(50% - 2.5px);
+    max-width: calc(50% - 2.5px);
+  }
+  
+  .mobileCards .book {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .mobileCards .book img {
+    max-width: 100%;
+    width: 100%;
+  }
 }
