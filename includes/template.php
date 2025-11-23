@@ -1,7 +1,7 @@
 <?php
 
-function renderPage($view, $data = []) {
-    extract($data);
+function renderPage($view, $data) {
+    $auth = $data;
     ?>
     <!doctype html>
     <html lang="en">
@@ -31,8 +31,8 @@ function renderPage($view, $data = []) {
     <?php
 }
 
-function renderAction($view, $data = []) {
-    extract($data);
+function renderAction($view, $data) {
+    $auth = $data;
     ?>
     <!doctype html>
     <html lang="en">

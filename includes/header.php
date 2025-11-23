@@ -1,7 +1,4 @@
 <?php
-include 'actions/includes/authCheck.php';
-
-$auth = requireAuth();
 ?>
 
 <div class="flex-row justify-between padding-all bg-background-alt border-btm">

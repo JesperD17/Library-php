@@ -2,6 +2,9 @@
 session_start();
 
 require 'includes/template.php';
+include 'actions/includes/authCheck.php';
+
+$prop = requireAuth();
 
 $page = $_GET['page'] ?? 'home';
 $page = trim($page, '/');
@@ -13,17 +16,16 @@ $actionPath = "actions/$page.php";
 $authPaths = ["profile"];
 
 if (file_exists($path) && in_array($page, $authPaths)) {
-    include 'actions/includes/authCheck.php';
     if (!requireAuth()) {
         renderErrorPage('403');
         exit;
     } else {
-        renderPage($page);
+        renderPage($page, $prop);
     }
 } else if (file_exists($path)) {
-    renderPage($page);
+    renderPage($page, $prop);
 } else if (file_exists($actionPath)) {
-    renderAction($actionPath);
+    renderAction($actionPath, $prop);
 } else {
     renderErrorPage('404');
 }

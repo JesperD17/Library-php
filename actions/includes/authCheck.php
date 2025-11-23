@@ -1,7 +1,7 @@
 <?php
 
 function requireAuth() {
-    include_once __DIR__ . '/../includes/dbConnection.php';
+    $db = include __DIR__ . '/../includes/dbConnection.php';
 
     try {
         $token = $_COOKIE['SESSION_TOKEN'] ?? null;
