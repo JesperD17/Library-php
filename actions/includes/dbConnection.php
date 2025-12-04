@@ -11,6 +11,5 @@ try {
   error_log('DB error: ' . $e->getMessage());
   die('Database connection failed');
 }
-
 return $db;
 ?>
