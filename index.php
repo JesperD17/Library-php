@@ -12,6 +12,8 @@ if ($page === '') $page = 'home';
 
 $path = "pages/$page.php";
 $actionPath = "actions/$page.php";
+$actionAuthPath = "actions/auth/$page.php";
+$actionIncludePath = "actions/includes/$page.php";
 
 $authPaths = ["profile"];
 
