@@ -4,6 +4,21 @@ session_start();
 require 'includes/template.php';
 include 'actions/includes/authCheck.php';
 
+function hasInternetConnection(): bool {
+    $connected = @fsockopen("www.google.com", 80, $errno, $errstr, 3);
+    if ($connected) {
+        fclose($connected);
+        return true;
+    }
+    return false;
+}
+
+// check if user has wifi
+if (!hasInternetConnection()) {
+    renderErrorPage('no-wifi');
+    exit;
+}
+
 $prop = requireAuth();
 
 $page = $_GET['page'] ?? 'home';
