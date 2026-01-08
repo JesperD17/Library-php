@@ -2,7 +2,7 @@
     <div class="h1">Search books</div>
     <div class="flex-col gap">
         <form action="" method="GET">
-            <input class="border full-width" type="text" name="query" placeholder="Search...">
+            <input class="border full-width" type="text" name="query" placeholder="Search..." required minlength="5">
         </form>
         <?php
         if (isset($_GET['query'])) {

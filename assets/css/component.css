@@ -52,6 +52,10 @@
   color: var(--color-text);
 }
 
+.link:hover {
+  color: var(--color-text-tertary);
+}
+
 /* book cards */
 .book {
   background-color: var(--color-background-alt);
@@ -65,6 +69,14 @@
   height: 300px;
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
+}
+
+.bullet {
+  width: 6px;
+  height: 6px;
+  background-color: black;
+  border-radius: 50%;
+  margin-right: 6px;
 }
 
 @media only screen and (max-width: 500px) {

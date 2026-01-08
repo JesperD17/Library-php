@@ -10,6 +10,7 @@
     --color-background: #f5f7fa;
     --color-text-primary: #333333;
     --color-text-secondary: white;
+    --color-text-tertary: #686868;
 }
 
 * {
@@ -145,6 +146,11 @@ html, body {
     justify-content: center;
 }
 
+.center {
+    display: flex;
+    align-items: center;
+}
+
 .flex-align {
     display: flex;
     align-items: center;
@@ -190,6 +196,10 @@ html, body {
     gap: 5px;
 }
 
+.gap-m {
+    gap: 10px;
+}
+
 .full-width {
     width: 100%;
 }
@@ -225,6 +235,13 @@ html, body {
 
 .bold {
     font-weight: 600;
+}
+
+.two-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
 }
 
 /* colors */

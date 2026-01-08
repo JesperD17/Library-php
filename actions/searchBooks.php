@@ -21,6 +21,6 @@ try {
     $data = json_decode($response, true);
     echo dataToHtml($data, 'flex-row wrap justify-center', true, 'docs', $urlData);
 } catch (Exception $e) {
-    echo "<div class='errorMessage'>An error occurred while fetching the data: <br>$e</div>";
+    echo "<div class='errorMessage'>An error occurred while fetching the data <div class='hide'>$e</div></div>";
 }
 ?>

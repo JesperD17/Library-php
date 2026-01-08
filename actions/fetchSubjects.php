@@ -100,14 +100,17 @@ function dataToHtml($data, $classes, $mobileTrueFalse, $dataType, $urlData) {
         $authorName = $book['authors'][0]['name'] ?? $book['author_name'][0] ?? 'Unknown Author';
         $title = htmlspecialchars($book['title'] ?? 'Untitled', ENT_QUOTES);
 
-        $html .= "<a class='$mobileClass' href=''>
+        $bookKey = str_replace('/works/', '', $book['key'] ?? '');
+
+        $html .= "
+        <a class='$mobileClass link' href='./book?id={$bookKey}'>
             <div class='flex-col book justify-between'>
                 <img class='skeleton "; 
                 if ($coverEr == true) $html .= "objCover";
                 $html .= "' src='$coverURL' alt='$title'>
                 <div class='padding-all'>
-                    <div class='bold'>$title</div>
-                    <div>$authorName</div>
+                    <div class='bold two-lines'>$title</div>
+                    <div class='two-lines'>$authorName</div>
                 </div>
             </div>
         </a>";
